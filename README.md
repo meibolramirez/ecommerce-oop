@@ -52,6 +52,14 @@ Estos métodos sobrecargados ofrecen flexibilidad al añadir productos al carrit
 - La clase Cart ahora puede gestionar diversos objetos Producto, lo que permite almacenar tanto el ProductoFísico como el ProductoDigital en la misma lista de tipo Producto.
 - El método displayDetails(), que es polimórfico, se llama para cada producto del carrito, mostrando un comportamiento polimórfico donde el tipo de producto determina cómo se muestran sus detalles.
 
+### Encapsulamiento & Abstracción
+
+**SEM 5**
+
+- Se encapsularon los atributos de las clases Product, User y Cart usando el modificador private.
+- Se implementaron validaciones dentro de los setters para prevenir datos inválidos, como precios o stock negativos en Product y correos electrónicos con formato incorrecto en User.
+- Se mantuvo la abstracción de la clase Product como clase abstracta, asegurando que solo se puedan crear instancias de productos concretos (DigitalProduct y PhysicalProduct).
+
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio:
 ```bash
