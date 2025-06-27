@@ -16,20 +16,27 @@ public class Main {
 		List<Product> productList = new ArrayList<>();
 		productList.add(product1);
 		productList.add(product2);
-
+		
 		// Polimorfismo
 		System.out.println("\nClase Product:");
 		for (Product p : productList) {
 		    p.displayDetails();
 		}
 		
-		
+		// Product precio negativo
+		PhysicalProduct invalidProduct = new PhysicalProduct(3, "Juguete", "Pelota para perros", -10.00, 10, 0.5, "5cm");
+		invalidProduct.setPrice(-50);
+		invalidProduct.setStock(-2);
 		
 		// User
 		User user = new User(1, "Mabel Ramirez", "mramirez@test.com", "securePassword");
 		System.out.println("\nClase User:");
 		System.out.println(user);
 		System.out.println();
+		
+		// User con formato no valido de email
+		User invalidUser = new User(99, "Prueba", "correo_invalido", "1234");
+		invalidUser.setEmail("correo_invalido");  // Should trigger error
 		
 		// Cart
 		Cart cart = new Cart();

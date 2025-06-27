@@ -34,8 +34,13 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email != null && email.contains("@") && email.contains(".")) {
+            this.email = email;
+        } else {
+            System.out.println("Error: Formato de correo inválido.");
+        }
     }
+
 
     public String getPassword() {
         return password;

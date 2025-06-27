@@ -47,7 +47,11 @@ public abstract class Product {
 	}
 
 	public void setPrice(double price) {
-	    this.price = price;
+	    if (price >= 0) {
+	        this.price = price;
+	    } else {
+	        System.out.println("Error: El precio no puede ser negativo.");
+	    }
 	}
 
 	public int getStock() {
@@ -55,7 +59,11 @@ public abstract class Product {
 	}
 
 	public void setStock(int stock) {
-	    this.stock = stock;
+	    if (stock >= 0) {
+	        this.stock = stock;
+	    } else {
+	        System.out.println("Error: El stock no puede ser negativo.");
+	    }
 	}
 	
 	@Override
