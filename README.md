@@ -32,6 +32,26 @@ Ambas clases extienden la clase base Product, reutilizando sus atributos y méto
 
 Estas extensiones utilizan herencia para separar responsabilidades según el rol del usuario.
 
+### Polimorfismo, Sobrecarga & Sobreescritura 
+**SEM 4**
+
+**Sobrecarga de la clase Cart**
+- La clase Cart se actualizó para gestionar la adición de productos con diferentes firmas de constructor.
+- Sobrecarga de métodos: El método addProduct() se sobrecargó para permitir la adición de productos de varias maneras:
+  - Pasando un objeto Product.
+  - Pasando detalles individuales del producto (id, nombre, descripción, precio, stock).
+  - Pasando el nombre y el precio de un producto, con los demás atributos predeterminados.
+
+Estos métodos sobrecargados ofrecen flexibilidad al añadir productos al carrito de compra.
+
+**Actualizaciones del constructor en el carrito**
+ - El método `addProduct(int id, String name, String description, double price, int stock, String fileFormat, double fileSize)` ahora crea correctamente instancias de `DigitalProduct`.
+ - El método `addProduct(int id, String name, String description, double price, int stock, double weight, String dimensions)` crea instancias de `PhysicalProduct`.
+
+**Polimorfismo**
+- La clase Cart ahora puede gestionar diversos objetos Producto, lo que permite almacenar tanto el ProductoFísico como el ProductoDigital en la misma lista de tipo Producto.
+- El método displayDetails(), que es polimórfico, se llama para cada producto del carrito, mostrando un comportamiento polimórfico donde el tipo de producto determina cómo se muestran sus detalles.
+
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio:
 ```bash
