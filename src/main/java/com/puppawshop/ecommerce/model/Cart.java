@@ -19,6 +19,18 @@ public class Cart {
         System.out.println(product.getName() + " agregado al carrito.");
     }
     
+    // Overloading Product
+    public void addProduct(int id, String name, String description, double price, int stock, String fileFormat, double fileSize) {
+        Product p = new DigitalProduct(id, name, description, price, stock, fileFormat, fileSize);
+        addProduct(p);
+    }
+
+    // Overloading Product
+    public void addProduct(int id, String name, String description, double price, int stock, double weight, String dimensions) {
+        Product p = new PhysicalProduct(id, name, description, price, stock, weight, dimensions);
+        addProduct(p);
+    }
+    
     public void removeProduct(Product product) {
         if (products.remove(product)) {
             calculateTotal();

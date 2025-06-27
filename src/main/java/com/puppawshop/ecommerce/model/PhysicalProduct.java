@@ -29,7 +29,14 @@ public class PhysicalProduct extends Product{
 
     @Override
     public String toString() {
-        return super.toString() + String.format(", Peso: %.2f kg, Dimensiones: %s", weight, dimensions);
+        return super.toString() + String.format(", Peso: %.2f kg, Dimensiones: %s", weight, dimensions, "\n");
     }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Producto Físico:");
+        System.out.println(this.toString());
+    }
+
 
 }

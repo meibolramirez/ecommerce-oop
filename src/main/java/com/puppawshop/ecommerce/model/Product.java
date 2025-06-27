@@ -1,6 +1,6 @@
 package com.puppawshop.ecommerce.model;
 
-public class Product {
+public abstract class Product {
 	
 	private int id;
 	private String name;
@@ -15,6 +15,8 @@ public class Product {
 	    this.price = price;
 	    this.stock = stock;
 	}
+	
+	public abstract void displayDetails();
 
 	public int getId() {
 	    return id;

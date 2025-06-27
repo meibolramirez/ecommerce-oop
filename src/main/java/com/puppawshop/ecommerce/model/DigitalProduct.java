@@ -25,10 +25,19 @@ public class DigitalProduct extends Product{
     public void setFileSize(double fileSize) {
         this.fileSize = fileSize;
     }
+    
 
     @Override
     public String toString() {
-        return super.toString() + String.format(", Formato del archivo: %s, Tamañod del archivo: %.2f MB", fileFormat, fileSize);
+        return super.toString() + String.format(", Formato del archivo: %s, Tamañod del archivo: %.2f MB", fileFormat, fileSize, "\n");
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Producto Digital:");
+        System.out.println(this.toString());
     }
 
+
 }
+    
