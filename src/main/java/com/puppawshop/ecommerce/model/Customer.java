@@ -2,9 +2,11 @@ package com.puppawshop.ecommerce.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.puppawshop.ecommerce.notification.Observer;
 
-public class Customer extends User{
-	private List<String> purchaseHistory;
+public class Customer extends User implements Observer {
+
+    private List<String> purchaseHistory;
     private List<String> preferences;
 
     public Customer(int id, String name, String email, String password) {
@@ -30,8 +32,12 @@ public class Customer extends User{
     }
 
     @Override
+    public void update(String message) {
+        System.out.println("Cliente [" + getName() + "] recibió la notificación: " + message);
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", Compras: " + purchaseHistory + ", Preferencias: " + preferences;
     }
-
 }
