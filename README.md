@@ -89,6 +89,46 @@ Se desarrollaron dos clases de método de pago concretas:
 - CardPayment: Gestiona el inicio, la verificación y la confirmación de pagos con tarjeta de crédito o débito. Se utiliza el enmascaramiento del número de tarjeta para mayor seguridad.
 - PaypalPayment: Gestiona los procesos de pago mediante una cuenta de PayPal identificada por correo electrónico.
 
+### Patrones de Diseño: Singleton, Factory & Observer
+
+**SEM 7**
+
+**Patron Singleton**
+- Clase: SystemConfiguration
+- Paquete: com.puppawshop.ecommerce.config
+- Propósito: Garantiza una instancia de configuración única y consistente en toda la aplicación.
+
+- **Características**
+  - Instancia estática privada de la clase.
+  - Constructor privado para evitar instancias externas.
+  - Método público estático getInstance() para acceder a la instancia única.
+  - Contiene una configuración de moneda como ejemplo de configuración global.
+
+**Patron Factory**
+
+Creación de Productos y Usuarios
+- Clase: EntityFactory
+- Paquete: com.puppawshop.ecommerce.factory
+- Propósito: Centraliza y simplifica la creación de diferentes tipos de productos y usuarios.
+
+- **Características**
+  - createProduct(String type, ...): Crea un PhysicalProduct o un DigitalProduct según la entrada.
+  - createUser(String type, ...): Crea un Customer o un Administrator según la entrada.
+
+**Patron Observer**
+
+**Sistema de Notificaciones**
+
+- Interfaces: Observador, Sujeto
+- Clase Concreta: OrderStatusNotifier
+- Paquete: com.puppawshop.ecommerce.notification
+- Propósito: Permite que partes del sistema se suscriban a eventos (p. ej., cambios en el estado del pedido) y reciban notificaciones automáticas.
+
+- **Características**
+  - addObserver(Observer observer): Registra un observador.
+  - removeObserver(Observer observer): Da de baja un observador.
+  - notifyObservers(String message): Envía una notificación a todos los observadores registrados.
+
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio:
 ```bash
