@@ -31,13 +31,21 @@ public class Customer extends User implements Observer {
         preferences.add(preference);
     }
 
+    private List<String> notifications = new ArrayList<>();
+
     @Override
     public void update(String message) {
-        System.out.println("Cliente [" + getName() + "] recibió la notificación: " + message);
+        notifications.add(message);
+        System.out.println("Notificación para " + getName() + ": " + message);
     }
+
+    public List<String> getNotifications() {
+        return notifications;
+    }
+
 
     @Override
     public String toString() {
-        return super.toString() + ", Compras: " + purchaseHistory + ", Preferencias: " + preferences;
+        return "Customer: " + super.toString() + ", Compras: " + purchaseHistory + ", Preferencias: " + preferences;
     }
 }

@@ -1,11 +1,13 @@
 package com.puppawshop.ecommerce.model;
 
+import com.puppawshop.ecommerce.exceptions.InvalidProductException;
+
 public class PhysicalProduct extends Product{
 	
 	private double weight; // Kg
     private String dimensions; // LxWxH
 
-    public PhysicalProduct(int id, String name, String description, double price, int stock, double weight, String dimensions) {
+    public PhysicalProduct(int id, String name, String description, double price, int stock, double weight, String dimensions) throws InvalidProductException {
         super(id, name, description, price, stock);
         this.weight = weight;
         this.dimensions = dimensions;
@@ -33,9 +35,8 @@ public class PhysicalProduct extends Product{
     }
     
     @Override
-    public void displayDetails() {
-        System.out.println("Producto Físico:");
-        System.out.println(this.toString());
+    public String displayDetails() {
+        return "Producto Físico:\n" + this.toString();
     }
 
 

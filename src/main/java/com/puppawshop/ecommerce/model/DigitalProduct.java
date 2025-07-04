@@ -1,10 +1,12 @@
 package com.puppawshop.ecommerce.model;
 
+import com.puppawshop.ecommerce.exceptions.InvalidProductException;
+
 public class DigitalProduct extends Product{
 	private String fileFormat;
     private double fileSize;
     
-    public DigitalProduct(int id, String name, String description, double price, int stock, String fileFormat, double fileSize) {
+    public DigitalProduct(int id, String name, String description, double price, int stock, String fileFormat, double fileSize) throws InvalidProductException {
         super(id, name, description, price, stock);
         this.fileFormat = fileFormat;
         this.fileSize = fileSize;
@@ -33,9 +35,9 @@ public class DigitalProduct extends Product{
     }
     
     @Override
-    public void displayDetails() {
-        System.out.println("Producto Digital:");
-        System.out.println(this.toString());
+    public String displayDetails() {
+        // Return the product details as a string instead of printing it
+        return "Producto Digital:\n" + this.toString();
     }
 
 

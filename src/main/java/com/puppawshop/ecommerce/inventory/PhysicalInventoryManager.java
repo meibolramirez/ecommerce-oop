@@ -1,5 +1,6 @@
 package com.puppawshop.ecommerce.inventory;
 
+import com.puppawshop.ecommerce.exceptions.InvalidProductException;
 import com.puppawshop.ecommerce.model.PhysicalProduct;
 
 public class PhysicalInventoryManager extends InventoryManager<PhysicalProduct> {
@@ -16,7 +17,11 @@ public class PhysicalInventoryManager extends InventoryManager<PhysicalProduct> 
 
     @Override
     public void updateStock(PhysicalProduct product, int newStock) {
-        product.setStock(newStock);
+        try {
+			product.setStock(newStock);
+		} catch (InvalidProductException e) {
+			e.printStackTrace();
+		}
         System.out.println("Stock del producto físico '" + product.getName() + "' actualizado a " + newStock + " unidades.");
     }
 }

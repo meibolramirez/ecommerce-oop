@@ -1,4 +1,6 @@
 package com.puppawshop.ecommerce.model;
+import com.puppawshop.ecommerce.exceptions.InvalidProductException;
+
 
 public abstract class Product {
 	
@@ -7,8 +9,14 @@ public abstract class Product {
 	private String description;
 	private double price;
 	private int stock;
-
-	public Product(int id, String name, String description, double price, int stock) {
+	
+	public Product(int id, String name, String description, double price, int stock) throws InvalidProductException {
+	    if (price < 0) {
+	        throw new InvalidProductException("El precio no puede ser negativo.");
+	    }
+	    if (stock < 0) {
+	        throw new InvalidProductException("El stock no puede ser negativo.");
+	    }
 	    this.id = id;
 	    this.name = name;
 	    this.description = description;
@@ -16,7 +24,7 @@ public abstract class Product {
 	    this.stock = stock;
 	}
 	
-	public abstract void displayDetails();
+	public abstract String displayDetails();
 
 	public int getId() {
 	    return id;
@@ -46,24 +54,22 @@ public abstract class Product {
 	    return price;
 	}
 
-	public void setPrice(double price) {
-	    if (price >= 0) {
-	        this.price = price;
-	    } else {
-	        System.out.println("Error: El precio no puede ser negativo.");
+	public void setPrice(double price) throws InvalidProductException {
+	    if (price < 0) {
+	        throw new InvalidProductException("El precio no puede ser negativo.");
 	    }
+	    this.price = price;
 	}
 
 	public int getStock() {
 	    return stock;
 	}
 
-	public void setStock(int stock) {
-	    if (stock >= 0) {
-	        this.stock = stock;
-	    } else {
-	        System.out.println("Error: El stock no puede ser negativo.");
+	public void setStock(int stock) throws InvalidProductException {
+	    if (stock < 0) {
+	        throw new InvalidProductException("El stock no puede ser negativo.");
 	    }
+	    this.stock = stock;
 	}
 	
 	@Override
