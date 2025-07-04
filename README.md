@@ -129,6 +129,38 @@ Creación de Productos y Usuarios
   - removeObserver(Observer observer): Da de baja un observador.
   - notifyObservers(String message): Envía una notificación a todos los observadores registrados.
 
+### Manejo de Excepciones y Pruebas Unitarias
+
+**Tipos de excepciones**
+
+Se han definido las siguientes excepciones personalizadas:
+
+- InsufficientInventoryException: Se genera cuando el inventario de un producto es insuficiente para el pedido de un cliente.
+- PaymentFailedException: Se genera cuando falla una transacción de pago.
+- InvalidProductException: Se activa cuando un usuario intenta añadir un producto no válido o inexistente al carrito de compra.
+
+Cada excepción está diseñada para ser serializable e incluye un mensaje descriptivo para facilitar la depuración.
+
+**JUnit**
+
+El proyecto utiliza JUnit 5 como marco de pruebas principal. JUnit proporciona herramientas robustas para escribir y ejecutar pruebas unitarias automatizadas en Java, garantizando la validación exhaustiva tanto de la funcionalidad normal como de los escenarios excepcionales.
+
+Características clave utilizadas
+
+- @Test: Marca los métodos como casos de prueba.
+- @BeforeEach: Se utiliza para configurar entornos de prueba antes de cada método.
+- asserteEquals(): Verifica los resultados esperados con los resultados reales.
+- asserteThrows(): Valida que se lancen las excepciones correctas en caso de error.
+
+**Cobertura de pruebas**
+
+Las pruebas implementadas cubren:
+
+- Lógica de negocio relacionada con la gestión de productos, inventario y operaciones del carrito.
+- Gestión de excepciones para errores comunes.
+- Instanciación correcta de objetos mediante el patrón Factory.
+- Corrección del comportamiento del patrón 
+
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio:
 ```bash
